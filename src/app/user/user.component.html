@@ -1,0 +1,23 @@
+<h1>Create User</h1>
+<div class="col-md-4 m-5 pb-5">
+  <form [formGroup]="createUserForm" (ngSubmit)="SaveUser()">
+    <div class="form-group">
+      <label>First Name : </label>
+      <input type="text" class="form-control" formControlName="FirstName" placeholder="First name" maxlength="15">
+      <span class="warning" *ngIf="createUserForm.controls['FirstName'].errors?.required && createUserForm.submitted"
+      style="color: red;">
+        * First name is required </span>
+    </div>
+    <div class="form-group">
+      <label>Last Name : </label>
+      <input type="text" class="form-control" formControlName="LastName" placeholder="Last Name"  maxlength="15">
+      <span class="warning"  style="color: red;" *ngIf="createUserForm.controls['LastName'].errors?.required && createUserForm.submitted">
+        * Last name is required </span>
+    </div>
+
+    <button type="submit"  class="btn btn-success">Save</button> 
+
+    &nbsp;
+    <!-- <button type="button" [routerLink]="['/users']"class="btn btn-danger">Cancel</button> -->
+  </form>
+</div>
